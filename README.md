@@ -9,6 +9,9 @@ Each entry includes:
 - Metadata: complexity, related concepts, source citation
 
 ---
+## Live Demo
+
+🔗 https://krishnagupta-create.github.io/AI_Concept_visualizer/
 
 ## Project Structure
 
