@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Generated
+data/concepts_flat.csv
+docs/metadata_report.md
+
+# Visuals (large files — use Git LFS or keep locally)
+data/visuals/

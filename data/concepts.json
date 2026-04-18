@@ -1,0 +1,368 @@
+[
+  {
+    "id": "001",
+    "title": "Attention Mechanism",
+    "category": "Architecture",
+    "label": "good",
+    "summary": "Self-attention computes pairwise similarity scores across token positions, enabling dynamic context aggregation.",
+    "tags": ["transformer", "QKV", "context"],
+    "visual_description": "Multi-head attention diagram showing Q·Kᵀ/√d softmax weighting across 8 heads",
+    "visual_file": "attention_mechanism.png",
+    "metadata": {
+      "complexity": "intermediate",
+      "related_concepts": ["002", "012"],
+      "source": "Vaswani et al. 2017"
+    }
+  },
+  {
+    "id": "002",
+    "title": "Backpropagation",
+    "category": "Training",
+    "label": "good",
+    "summary": "Gradient computation via chain rule propagated backward through computation graph to update weights.",
+    "tags": ["gradient", "chain rule", "optimization"],
+    "visual_description": "Layered network with color-coded ∂L/∂W flow arrows at each layer",
+    "visual_file": "backpropagation.png",
+    "metadata": {
+      "complexity": "intermediate",
+      "related_concepts": ["013", "016"],
+      "source": "Rumelhart et al. 1986"
+    }
+  },
+  {
+    "id": "003",
+    "title": "Embedding Space",
+    "category": "Foundations",
+    "label": "good",
+    "summary": "High-dimensional vector representations where semantic similarity maps to geometric proximity.",
+    "tags": ["vectors", "semantic", "representation"],
+    "visual_description": "3D scatter plot with word clusters: king–queen–man–woman analogies shown as offset vectors",
+    "visual_file": "embedding_space.png",
+    "metadata": {
+      "complexity": "beginner",
+      "related_concepts": ["005", "010"],
+      "source": "Mikolov et al. 2013"
+    }
+  },
+  {
+    "id": "004",
+    "title": "RLHF",
+    "category": "Alignment",
+    "label": "good",
+    "summary": "Reinforcement learning from human feedback trains a reward model then fine-tunes LLMs via PPO.",
+    "tags": ["alignment", "PPO", "reward model"],
+    "visual_description": "Pipeline: base model → SFT → reward model → PPO RL loop with human rater icons",
+    "visual_file": "rlhf.png",
+    "metadata": {
+      "complexity": "advanced",
+      "related_concepts": ["008", "018"],
+      "source": "Christiano et al. 2017"
+    }
+  },
+  {
+    "id": "005",
+    "title": "Tokenization",
+    "category": "Foundations",
+    "label": "good",
+    "summary": "BPE and WordPiece segment text into subword units to balance vocabulary size and coverage.",
+    "tags": ["BPE", "vocab", "subword"],
+    "visual_description": "String 'unbelievable' split into colored token tiles with ID numbers below each",
+    "visual_file": "tokenization.png",
+    "metadata": {
+      "complexity": "beginner",
+      "related_concepts": ["003", "010"],
+      "source": "Sennrich et al. 2016"
+    }
+  },
+  {
+    "id": "006",
+    "title": "KV Cache",
+    "category": "Inference",
+    "label": "good",
+    "summary": "Cached key/value tensors from prior tokens eliminate redundant recomputation during autoregressive generation.",
+    "tags": ["inference", "memory", "autoregressive"],
+    "visual_description": "Expanding cache matrix: green cells = reused from prior step, blue = newly computed",
+    "visual_file": "kv_cache.png",
+    "metadata": {
+      "complexity": "advanced",
+      "related_concepts": ["001", "015"],
+      "source": "Pope et al. 2022"
+    }
+  },
+  {
+    "id": "007",
+    "title": "Layer Normalization",
+    "category": "Architecture",
+    "label": "good",
+    "summary": "Normalizes activations per token across feature dimensions, stabilizing deep transformer training.",
+    "tags": ["norm", "stability", "activations"],
+    "visual_description": "Pre-LN vs Post-LN placement diagram with gradient magnitude comparison at each block",
+    "visual_file": "layer_norm.png",
+    "metadata": {
+      "complexity": "intermediate",
+      "related_concepts": ["002", "001"],
+      "source": "Ba et al. 2016"
+    }
+  },
+  {
+    "id": "008",
+    "title": "Constitutional AI",
+    "category": "Alignment",
+    "label": "good",
+    "summary": "Red-teaming + self-critique loop where the model revises harmful outputs using a written principle set.",
+    "tags": ["safety", "critique", "principles"],
+    "visual_description": "Critique–revision cycle diagram with principle cards feeding the self-revision step",
+    "visual_file": "constitutional_ai.png",
+    "metadata": {
+      "complexity": "advanced",
+      "related_concepts": ["004", "022"],
+      "source": "Anthropic 2022"
+    }
+  },
+  {
+    "id": "009",
+    "title": "LoRA",
+    "category": "Training",
+    "label": "good",
+    "summary": "Low-rank matrix decomposition enables efficient fine-tuning with fewer than 1% of original parameters.",
+    "tags": ["PEFT", "fine-tuning", "low-rank"],
+    "visual_description": "W₀ + ΔW = W₀ + A·B decomposition matrix diagram with rank-r bottleneck highlighted",
+    "visual_file": "lora.png",
+    "metadata": {
+      "complexity": "intermediate",
+      "related_concepts": ["002", "024"],
+      "source": "Hu et al. 2021"
+    }
+  },
+  {
+    "id": "010",
+    "title": "Softmax Function",
+    "category": "Foundations",
+    "label": "good",
+    "summary": "Exponential normalization converts raw logits into a probability distribution over vocabulary.",
+    "tags": ["probability", "logits", "normalization"],
+    "visual_description": "Side-by-side: raw logit bars on left → softmax output probability bars on right with values",
+    "visual_file": "softmax.png",
+    "metadata": {
+      "complexity": "beginner",
+      "related_concepts": ["001", "015"],
+      "source": "Classic ML"
+    }
+  },
+  {
+    "id": "011",
+    "title": "Beam Search",
+    "category": "Inference",
+    "label": "good",
+    "summary": "Maintains k best partial sequences at each step, trading compute for improved output quality.",
+    "tags": ["decoding", "search", "beam"],
+    "visual_description": "Tree diagram: width-3 beam expansion across 4 steps with pruned branches grayed out",
+    "visual_file": "beam_search.png",
+    "metadata": {
+      "complexity": "intermediate",
+      "related_concepts": ["015", "023"],
+      "source": "Classic NLP"
+    }
+  },
+  {
+    "id": "012",
+    "title": "Positional Encoding",
+    "category": "Architecture",
+    "label": "good",
+    "summary": "Sinusoidal or learned vectors injected at input embed token order into position-invariant attention.",
+    "tags": ["position", "sin/cos", "encoding"],
+    "visual_description": "Heatmap of sine/cosine encoding patterns across 512 positions and 64 dimensions",
+    "visual_file": "positional_encoding.png",
+    "metadata": {
+      "complexity": "intermediate",
+      "related_concepts": ["001", "005"],
+      "source": "Vaswani et al. 2017"
+    }
+  },
+  {
+    "id": "013",
+    "title": "Cross-Entropy Loss",
+    "category": "Training",
+    "label": "good",
+    "summary": "Negative log-likelihood of the correct token measures prediction quality at each sequence position.",
+    "tags": ["loss", "NLL", "training"],
+    "visual_description": "Probability bar chart with correct class highlighted; -log(p) value annotated with arrow",
+    "visual_file": "cross_entropy.png",
+    "metadata": {
+      "complexity": "beginner",
+      "related_concepts": ["002", "010"],
+      "source": "Classic ML"
+    }
+  },
+  {
+    "id": "014",
+    "title": "Mixture of Experts",
+    "category": "Architecture",
+    "label": "good",
+    "summary": "Sparse gating routes each token to a subset of specialist feed-forward modules, scaling capacity cheaply.",
+    "tags": ["MoE", "routing", "sparse"],
+    "visual_description": "Router + 8 expert blocks with token-flow arrows highlighting only 2 active experts per token",
+    "visual_file": "mixture_of_experts.png",
+    "metadata": {
+      "complexity": "advanced",
+      "related_concepts": ["001", "007"],
+      "source": "Shazeer et al. 2017"
+    }
+  },
+  {
+    "id": "015",
+    "title": "Temperature Sampling",
+    "category": "Inference",
+    "label": "good",
+    "summary": "Dividing logits by T before softmax controls output diversity: T approaching 0 is greedy, T approaching infinity is uniform.",
+    "tags": ["sampling", "diversity", "temperature"],
+    "visual_description": "Three overlaid distribution curves at T=0.3 (sharp), T=1.0 (base), T=2.0 (flat) with shaded areas",
+    "visual_file": "temperature_sampling.png",
+    "metadata": {
+      "complexity": "beginner",
+      "related_concepts": ["010", "011"],
+      "source": "Classic LM decoding"
+    }
+  },
+  {
+    "id": "016",
+    "title": "Gradient Clipping",
+    "category": "Training",
+    "label": "good",
+    "summary": "Rescales gradient norm to a ceiling value, preventing exploding gradients in deep or recurrent networks.",
+    "tags": ["stability", "norm", "exploding"],
+    "visual_description": "2D vector diagram: original long gradient vector vs clipped version constrained to norm circle",
+    "visual_file": "gradient_clipping.png",
+    "metadata": {
+      "complexity": "beginner",
+      "related_concepts": ["002", "007"],
+      "source": "Pascanu et al. 2013"
+    }
+  },
+  {
+    "id": "017",
+    "title": "Flash Attention",
+    "category": "Architecture",
+    "label": "good",
+    "summary": "IO-aware tiling algorithm reduces attention memory from O(n²) to O(n) by fusing SRAM operations.",
+    "tags": ["memory", "speed", "IO-aware"],
+    "visual_description": "SRAM tiling diagram with HBM bandwidth comparison bars and tiling block annotations",
+    "visual_file": "flash_attention.png",
+    "metadata": {
+      "complexity": "advanced",
+      "related_concepts": ["001", "006"],
+      "source": "Dao et al. 2022"
+    }
+  },
+  {
+    "id": "018",
+    "title": "Alignment Tax",
+    "category": "Alignment",
+    "label": "good",
+    "summary": "Performance degradation on capability benchmarks caused by safety fine-tuning trade-offs.",
+    "tags": ["safety", "performance", "tradeoff"],
+    "visual_description": "Scatter plot: helpfulness score vs harmlessness score Pareto front with model checkpoints plotted",
+    "visual_file": "alignment_tax.png",
+    "metadata": {
+      "complexity": "intermediate",
+      "related_concepts": ["004", "008"],
+      "source": "Bai et al. 2022"
+    }
+  },
+  {
+    "id": "019",
+    "title": "Hallucination",
+    "category": "Foundations",
+    "label": "bad",
+    "summary": "Model generates factually incorrect but fluent text due to training distribution gaps or overconfidence.",
+    "tags": ["reliability", "facts", "errors"],
+    "visual_description": "BAD DESIGN: bar chart without axis labels, no annotation of error type, no source citation",
+    "visual_file": "hallucination.png",
+    "metadata": {
+      "complexity": "beginner",
+      "related_concepts": ["003", "020"],
+      "source": "Maynez et al. 2020",
+      "annotation_notes": "Missing axis labels, no error taxonomy, fails to distinguish intrinsic vs extrinsic hallucination"
+    }
+  },
+  {
+    "id": "020",
+    "title": "In-Context Learning",
+    "category": "Foundations",
+    "label": "bad",
+    "summary": "Few-shot examples embedded in the prompt allow task adaptation without any weight updates.",
+    "tags": ["prompting", "few-shot", "adaptation"],
+    "visual_description": "BAD DESIGN: Dense text block with no visual hierarchy, no callouts separating system/user/assistant turns",
+    "visual_file": "in_context_learning.png",
+    "metadata": {
+      "complexity": "beginner",
+      "related_concepts": ["005", "003"],
+      "source": "Brown et al. 2020",
+      "annotation_notes": "Pure text, no visual differentiation of prompt vs output, illegible at small sizes"
+    }
+  },
+  {
+    "id": "021",
+    "title": "Dropout",
+    "category": "Training",
+    "label": "bad",
+    "summary": "Randomly zeroes activations during training as a regularization technique to prevent overfitting.",
+    "tags": ["regularization", "overfitting"],
+    "visual_description": "BAD DESIGN: Cluttered diagram with 6+ colors and inconsistent notation across neuron labels",
+    "visual_file": "dropout.png",
+    "metadata": {
+      "complexity": "beginner",
+      "related_concepts": ["002", "007"],
+      "source": "Srivastava et al. 2014",
+      "annotation_notes": "Over-colored, inconsistent symbol use, no legend, confuses training vs inference behavior"
+    }
+  },
+  {
+    "id": "022",
+    "title": "Prompt Injection",
+    "category": "Alignment",
+    "label": "bad",
+    "summary": "Adversarial inputs that override system instructions embedded in user-controlled content.",
+    "tags": ["security", "red-team", "adversarial"],
+    "visual_description": "BAD DESIGN: No diagram — only bullet points, completely fails the visual annotation spec",
+    "visual_file": "prompt_injection.png",
+    "metadata": {
+      "complexity": "intermediate",
+      "related_concepts": ["008", "004"],
+      "source": "Perez & Ribeiro 2022",
+      "annotation_notes": "No infographic produced, submitted plain text, violates dataset schema"
+    }
+  },
+  {
+    "id": "023",
+    "title": "Speculative Decoding",
+    "category": "Inference",
+    "label": "pending",
+    "summary": "Small draft model proposes tokens verified in parallel by the target model for faster generation.",
+    "tags": ["latency", "draft model", "parallel"],
+    "visual_description": "PENDING: Draft→verify pipeline diagram submitted, awaiting quality review",
+    "visual_file": null,
+    "metadata": {
+      "complexity": "advanced",
+      "related_concepts": ["011", "006"],
+      "source": "Leviathan et al. 2022",
+      "annotation_notes": "Infographic submitted 2024-01-15, review scheduled"
+    }
+  },
+  {
+    "id": "024",
+    "title": "Quantization",
+    "category": "Training",
+    "label": "pending",
+    "summary": "Reducing weight precision from FP16 to INT8 or INT4 to shrink model footprint with minimal quality loss.",
+    "tags": ["compression", "INT8", "efficiency"],
+    "visual_description": "PENDING: Visual explainer comparing FP32/FP16/INT8/INT4 bit patterns in progress",
+    "visual_file": null,
+    "metadata": {
+      "complexity": "intermediate",
+      "related_concepts": ["009", "017"],
+      "source": "Dettmers et al. 2022",
+      "annotation_notes": "In progress — visual designer assigned 2024-01-20"
+    }
+  }
+]
